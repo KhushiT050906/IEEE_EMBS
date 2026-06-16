@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0F6E56;
+  --color-primary-dark: #0A4D3C;
+  --color-primary-light: #E6F1EE;
+  --color-danger: #E24B4A;
+  --color-danger-light: #FCEBEB;
+  --color-surface: #F7F8FA;
+  --color-clinical-gray: #6B7280;
+  --color-clinical-border: #E5E7EB;
+
+  --font-sans: "Inter", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  
+  --radius-clinical: 12px;
+  --radius-clinical-sm: 6px;
+
+  --shadow-clinical: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-white text-[#1A1C1E] font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium text-slate-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-[#F7F8FA] border border-clinical-border rounded-clinical p-4 shadow-clinical;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-clinical-sm font-medium hover:bg-primary-dark transition-colors disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-4 py-2 rounded-clinical-sm font-medium hover:bg-primary-light transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 border border-clinical-border rounded-clinical-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+
+  .badge {
+    @apply px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-mild { @apply bg-green-100 text-green-800 border border-green-200; }
+  .badge-moderate { @apply bg-amber-100 text-amber-800 border border-amber-200; }
+  .badge-severe { @apply bg-red-100 text-red-800 border border-red-200; }
+}
